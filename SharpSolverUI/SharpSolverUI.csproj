@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <OutputType>WinExe</OutputType>
@@ -10,7 +10,7 @@
     <PublishSingleFile>true</PublishSingleFile>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <SignAssembly>false</SignAssembly>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <RepositoryUrl>https://github.com/spmadeira/SharpSolver/</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>

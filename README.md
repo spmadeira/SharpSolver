@@ -15,7 +15,7 @@ You can import only the SharpSolver functionality library by importing the Sharp
 
 ### Solving by Linear Model
 
-You can generate a `SolvedModel` from a `LinearModel` by calling the static `Solve` from `LinearModelSolver`
+You can generate a `SolvedModel` from a `LinearModel` by calling the static `Solve` method from `LinearModelSolver`.
 
 Eg.
 ```csharp
