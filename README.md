@@ -39,3 +39,38 @@ Console.WriteLine($"Result: {solvedModel.Z.ToFractionString()}")
 ```
 
 You may also write a custom wrapper that receives a string and returns a `LinearModel` if the default `LinearParser` is not sufficient.
+
+### Creating a Linear Model
+
+A `LinearModel` is composed of:
+
+- An `Objective` (Maximize, Minimze)
+- A list of `Variables`
+- A list of `Constraints`
+- An objecive function (a list of `ValueVariables`)
+
+The following is an example of how to build a `LinearModel` equivalent to the previous example's string.
+
+```csharp
+Variable X1 = Variable.Input("X1");
+Variable X2 = Variable.Input("X2");
+
+Constraint C1 = Constraint.LessThanOrEqualTo("C1", 4, X1.As(1));
+Constraint C2 = Constraint.LessThanOrEqualTo("C2", 12, X2.As(2));
+Constraint C3 = Constraint.LessThanOrEqualTo("C3", 18, X1.As(3),X2.As(2));
+//Alternatively, receiving an IEnumerable<ValueVariable>
+//Constraint C3 = Constraint.LessThanOrEqualTo("C3", 18, new []{X1.As(3), X2.As(2)});
+
+List<ValueVariable> ObjectiveFunction = new []{X1.As(3), X2.As(5)}.ToList();
+LinearModel linearModel = new LinearModel{
+    Objective = Objective.MAX,
+    Variables = new[]{X1,X2}.ToList(),
+    Constraints = new[]{C1,C2,C3}.ToList(),
+    ObjectiveFunction = ObjectiveFunction
+};
+
+SolvedModel solvedModel = LinearModelSolver.Solve(linearModel);
+
+//Outputs "Result: 36"
+Console.WriteLine($"Result: {solvedModel.Z.ToFractionString()}");
+```
