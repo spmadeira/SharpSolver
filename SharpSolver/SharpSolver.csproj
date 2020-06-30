@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>SharpSolver</RootNamespace>
+    <Version>1.0.1</Version>
+    <RepositoryUrl>https://github.com/spmadeira/SharpSolver/</RepositoryUrl>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="BigRationalLibrary" Version="1.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="BigRationalLibrary" Version="1.0.0">
+      <NoWarn>NU1701</NoWarn>
+    </PackageReference>
   </ItemGroup>
-
 </Project>

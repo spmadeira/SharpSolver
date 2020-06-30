@@ -1,19 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
-
   <PropertyGroup>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <OutputType>WinExe</OutputType>
     <UseWPF>true</UseWPF>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <ApplicationIcon>Icons/SharpSolver.ico</ApplicationIcon>
-    
     <PublishTrimmed>false</PublishTrimmed>
     <PublishReadyToRun>false</PublishReadyToRun>
     <PublishSingleFile>true</PublishSingleFile>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <SignAssembly>false</SignAssembly>
+    <Version>1.0.0</Version>
+    <RepositoryUrl>https://github.com/spmadeira/SharpSolver/</RepositoryUrl>
   </PropertyGroup>
-
   <ItemGroup>
     <None Remove="Icons\SharpSolver.png" />
     <None Remove="Icons\ASX_Next_blue_16x.png" />
@@ -22,14 +21,12 @@
     <None Remove="Icons\ASX_Previous_grey_16x.png" />
     <None Remove="Icons\GitHub-Mark-32px.png" />
   </ItemGroup>
-
   <ItemGroup>
     <None Remove="Icons\Checkmark_16x.png" />
     <Content Include="Icons\Checkmark_16x.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-
   <ItemGroup>
     <None Remove="Icons\Close_16x.png" />
     <Content Include="Icons\ASX_Next_blue_16x.png">
@@ -67,11 +64,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\SharpSolver\SharpSolver.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <None Remove="Icons\SharpSolver.ico" />
     <Content Include="Icons\SharpSolver.ico">
@@ -82,5 +77,4 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-
 </Project>
