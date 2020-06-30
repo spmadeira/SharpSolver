@@ -1,0 +1,63 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:SharpSolverUI.Avalonia.ViewModels;assembly=SharpSolverUI.Avalonia"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SharpSolverUI.Avalonia.Views.MainWindow"
+        WindowStartupLocation="CenterScreen"
+        MinWidth="300"
+        MinHeight="300"
+        Width="800"
+        Height="450"
+        Icon="/Assets/SharpSolver.ico"
+        Title="Sharp Solver">
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <Menu DockPanel.Dock="Left">
+                <Menu.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <DockPanel />
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
+                <MenuItem Header="_File">
+                    <MenuItem Header="New" Command="{Binding NewCommand}" HotKey="Ctrl+N">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/NewItem_16x.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Open" Command="{Binding LoadCommand}" HotKey="Ctrl+O">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/OpenFile_16x.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Save" Command="{Binding SaveCommand}" HotKey="Ctrl+S">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Save_16x.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem Header="Exit" Command="{Binding ExitCommand}" HotKey="Ctrl+E">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Close_16x.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Solve" Command="{Binding SolveCommand}" HotKey="Ctrl+R" />
+            </Menu>
+            <Button DockPanel.Dock="Right" BorderThickness="0" Width="16" Height="16" HorizontalAlignment="Right" 
+                    Command="{Binding SourceCommand}" Margin="0,0,10,0">
+                <Button.Content>
+                    <Image Source="/Assets/GitHub-Mark-32px.png" Height="16" Width="16"></Image>
+                </Button.Content>
+            </Button>
+        </DockPanel>
+        <Grid Margin="10">
+            <TextBox x:Name="TextBox" AcceptsReturn="True" TextWrapping="NoWrap" FontFamily="Consolas" FontSize="18"
+                     Text="{Binding Text, Mode=TwoWay}" />
+        </Grid>
+    </DockPanel>
+</Window>
