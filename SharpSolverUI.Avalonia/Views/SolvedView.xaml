@@ -1,0 +1,61 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:SharpSolverUI.Avalonia.ViewModels;assembly=SharpSolverUI.Avalonia"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="800"
+        Height="450"
+        CanResize="False"
+        Icon="/Assets/SharpSolver.ico"
+        WindowStartupLocation="CenterOwner"
+        x:Class="SharpSolverUI.Avalonia.Views.SolvedView"
+        Title="Sharp Solver">
+  <Window.Resources>
+    <Image x:Key="BackArrowEnabled" x:Name="BackArrowEnabled" Source="/Assets/ASX_Previous_blue_16x.png" Stretch="None"/>
+    <Image x:Key="BackArrowDisabled" x:Name="BackArrowDisabled" Source="/Assets/ASX_Previous_grey_16x.png" Stretch="None"/>
+    <Image x:Key="ForwardArrowEnabled" x:Name="ForwardArrowEnabled" Source="/Assets/ASX_Next_blue_16x.png" Stretch="None"/>
+    <Image x:Key="PageResult" x:Name="PageResult" Source="/Assets/Checkmark_16x.png" Stretch="None"/>
+  </Window.Resources>
+  <Design.DataContext>
+    <vm:SolvedViewModel/>
+  </Design.DataContext>
+  <DockPanel Margin="0,0,0,0">
+    <DockPanel DockPanel.Dock="Top">
+      <DockPanel DockPanel.Dock="Left" Width="678">
+        <TextBlock Text="Method:" FontWeight="Bold" VerticalAlignment="Center"/>
+        <TextBlock x:Name="MethodText" Text="{Binding MethodText, Mode=TwoWay}" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        <TextBlock Text="Objective Function:" FontWeight="Bold" VerticalAlignment="Center"/>
+        <TextBlock x:Name="ObjectiveFunctionText" Text="{Binding ObjectiveFunctionText, Mode=TwoWay}" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        <TextBlock Text="Iteration:" FontWeight="Black" VerticalAlignment="Center"/>
+        <TextBlock x:Name="IterationText" Text="{Binding IterationText, Mode=TwoWay}" VerticalAlignment="Center"/>
+      </DockPanel>
+      <Grid Margin="2,2,2,2">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="1*"/>
+          <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="BackButton" Command="{Binding PreviousPageCommand}" IsEnabled="True">
+          <Button.Content>
+            <Image Source="/Assets/ASX_Previous_blue_16x.png" Stretch="None"></Image>
+          </Button.Content>
+        </Button>
+        <Button x:Name="ForwardButton" Command="{Binding NextPageCommand}" IsEnabled="True" Grid.Column="1">
+          <Button.Content>
+            <Image Source="/Assets/ASX_Next_blue_16x.png" Stretch="None"></Image>
+          </Button.Content>
+        </Button>
+      </Grid>
+    </DockPanel>
+    <Border DockPanel.Dock="Bottom" BorderThickness="2,2,2,2" BorderBrush="Black" Margin="5,5,5,5">
+      <Grid 
+        x:Name="Grid"
+        Width="785"
+        Height="405"
+        Margin="0,0,0,0"/>
+    </Border>
+  </DockPanel>
+</Window>

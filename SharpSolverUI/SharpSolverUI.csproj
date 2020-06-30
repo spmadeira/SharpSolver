@@ -1,0 +1,86 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <OutputType>WinExe</OutputType>
+    <UseWPF>true</UseWPF>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon>Icons/SharpSolver.ico</ApplicationIcon>
+    
+    <PublishTrimmed>false</PublishTrimmed>
+    <PublishReadyToRun>false</PublishReadyToRun>
+    <PublishSingleFile>true</PublishSingleFile>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Icons\SharpSolver.png" />
+    <None Remove="Icons\ASX_Next_blue_16x.png" />
+    <None Remove="Icons\ASX_Next_grey_16x.png" />
+    <None Remove="Icons\ASX_Previous_blue_16x.png" />
+    <None Remove="Icons\ASX_Previous_grey_16x.png" />
+    <None Remove="Icons\GitHub-Mark-32px.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Icons\Checkmark_16x.png" />
+    <Content Include="Icons\Checkmark_16x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Icons\Close_16x.png" />
+    <Content Include="Icons\ASX_Next_blue_16x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\ASX_Next_grey_16x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\ASX_Previous_blue_16x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\ASX_Previous_grey_16x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\Close_16x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Icons\NewItem_16x.png" />
+    <Content Include="Icons\GitHub-Mark-32px.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\NewItem_16x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Icons\OpenFile_16x.png" />
+    <Content Include="Icons\OpenFile_16x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Icons\Run_16x.png" />
+    <Content Include="Icons\Run_16x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Icons\Save_16x.png" />
+    <Content Include="Icons\Save_16x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SharpSolver\SharpSolver.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Icons\SharpSolver.ico" />
+    <Content Include="Icons\SharpSolver.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Icons\SharpSolver.png" />
+    <Content Include="Icons\SharpSolver.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

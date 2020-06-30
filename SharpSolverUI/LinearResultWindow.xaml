@@ -1,0 +1,67 @@
+﻿<Window x:Class="SharpSolverUI.LinearResultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SharpSolverUI"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        mc:Ignorable="d"
+        Title="Sharp Solver" Height="450" Width="800">
+    <Window.Resources>
+        <Image x:Key="BackArrowEnabled" x:Name="BackArrowEnabled" Source="Icons/ASX_Previous_blue_16x.png" Stretch="None"/>
+        <Image x:Key="BackArrowDisabled" x:Name="BackArrowDisabled" Source="Icons/ASX_Previous_grey_16x.png" Stretch="None"/>
+        <Image x:Key="ForwardArrowEnabled" x:Name="ForwardArrowEnabled" Source="Icons/ASX_Next_blue_16x.png" Stretch="None"/>
+        <Image x:Key="PageResult" x:Name="PageResult" Source="Icons/Checkmark_16x.png" Stretch="None"/>
+    </Window.Resources>
+    <DockPanel Margin="0,0,0,0">
+        <DockPanel DockPanel.Dock="Top">
+            <DockPanel DockPanel.Dock="Left" Width="678">
+                <Label Content="Method:" FontWeight="Bold"/>
+                <Label>
+                    <Label.Content>
+                        <TextBlock x:Name="MethodText"></TextBlock>
+                    </Label.Content>    
+                </Label>
+                <Label Content="Objective Function:" FontWeight="Bold"/>
+                <Label>
+                    <Label.Content>
+                        <TextBlock x:Name="ObjectiveFunctionText"></TextBlock>
+                    </Label.Content>    
+                </Label>
+                <Label Content="Iteration:" FontWeight="Black"/>
+                <Label>
+                    <Label.Content>
+                        <TextBlock x:Name="IterationText"></TextBlock>
+                    </Label.Content>    
+                </Label>
+            </DockPanel>
+            <Grid Margin="2,2,2,2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="BackButton" Click="PreviousPage">
+                    <Button.Content>
+                        <Image Source="Icons/ASX_Previous_blue_16x.png" Stretch="None"></Image>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="ForwardButton" Grid.Column="1" Click="NextPage">
+                    <Button.Content>
+                        <Image Source="Icons/ASX_Next_blue_16x.png" Stretch="None"></Image>
+                    </Button.Content>
+                </Button>
+            </Grid>
+        </DockPanel>
+        <Border DockPanel.Dock="Bottom" BorderThickness="2,2,2,2" BorderBrush="Black" Margin="5,5,5,5">
+            <Grid x:Name="Grid"
+              Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type Border}}}" 
+              Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"
+              Margin="0,0,0,0"/>
+        </Border>
+    </DockPanel>
+
+</Window>
