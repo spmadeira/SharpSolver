@@ -234,8 +234,6 @@ public static class LinearModelSolver {
         for (var i = 0; i < iteration.Bases.Length; i++)
         {
             var baseVar = iteration.Bases[i];
-            // var columnIndex = Array.IndexOf(iteration.Variables, baseVar);
-            // iteration.Z += iteration.BaseVariables[i] * iteration.ObjectiveVariables[columnIndex];
             iteration.Z += GetVariableObjective(baseVar, iteration) * iteration.BaseVariables[i];
         }
 
@@ -436,7 +434,6 @@ public static class LinearModelSolver {
         
         foreach (var constraint in constraints)
         {
-            //constraint.Variables.Sort((vv1, vv2) => vv1.Variable.Type - vv2.Variable.Type);
             constraint.Variables.Sort((vv1, vv2) => 
                 variables.IndexOf(vv1.Variable) - variables.IndexOf(vv2.Variable));
         }
@@ -446,8 +443,6 @@ public static class LinearModelSolver {
                 .Select(v => v.Coefficient).ToList())
             .ToList();
         
-        //TODO arrumar ordem das variaveis
-        //Linear3 é pra ser A1->A2->A3->S1, está sendo S1->A1->A2->A3
         var firstIteration = new SolverIteration
         {
             Variables = variables.ToArray(),
@@ -455,7 +450,6 @@ public static class LinearModelSolver {
             ObjectiveVariables = objectives.ToArray(),
             DecisionVariables = objectives.Select(o => o*-1).ToArray(),
             BaseVariables = constraints.Select(c => c.ConstraintValue).ToArray(),
-            //Bases = variables.Where(v => v.Type == VariableType.Input).ToArray(),
             Bases = variables.Skip(variables.Count-constraints.Count).ToArray(),
             InputGrid = inputGrid.Select(r => r.ToArray()).ToArray()
         };
